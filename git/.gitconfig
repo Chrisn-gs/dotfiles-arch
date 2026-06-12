@@ -1,0 +1,7 @@
+[user]
+	name = Chrisn-gs
+	email = chrisngosolo@gmail.com
+[init]
+	defaultBranch = main
+[credential]
+	helper = store

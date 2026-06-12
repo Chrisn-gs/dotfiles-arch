@@ -1,0 +1,16 @@
+# 备份文件
+*.backup
+*.bak.*
+*.bak
+
+# nvim 插件锁定文件（可以自动生成）
+# lazy-lock.json
+
+# 临时文件
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
