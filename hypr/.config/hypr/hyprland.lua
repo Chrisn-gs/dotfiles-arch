@@ -70,6 +70,12 @@ hl.on("hyprland.start", function ()
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+-- [Wayland 显示] 确保 DMS 等应用能找到显示
+hl.env("WAYLAND_DISPLAY", "wayland-0")
+hl.env("XDG_RUNTIME_DIR", "/run/user/1000")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+
 -- [中文输入法] fcitx5 环境变量
 hl.env("INPUT_METHOD", "fcitx")
 hl.env("GTK_IM_MODULE", "fcitx")
