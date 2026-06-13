@@ -63,3 +63,8 @@ source <(fzf --zsh)
 if [[ -z "$TMUX" ]] && [[ -z "$SSH_CONNECTION" ]]; then
   tmux attach 2>/dev/null || tmux
 fi
+export PATH="$HOME/scripts:$PATH"
+alias sh="scriptsHub"
+alias lg='lazygit'
+alias cc='claude'
+alias oc='opencode'
