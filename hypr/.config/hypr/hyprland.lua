@@ -296,8 +296,8 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
--- 最小化窗口（和 Glazewm 一致：alt+m）
-hl.bind(mainMod .. " + M", hl.dsp.window.minimize())
+-- 最小化窗口（和 Glazewm 一致：alt+m）- 使用特殊工作区
+hl.bind(mainMod .. " + M", hl.dsp.window.move({ workspace = "special:minimized" }))
 
 -- 调整窗口大小（和 Glazewm 一致：alt+u/i/o/p）
 hl.bind(mainMod .. " + U", hl.dsp.resize({ width = -50 }))
