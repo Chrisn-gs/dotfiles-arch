@@ -56,6 +56,8 @@ hl.on("hyprland.start", function ()
    -- hl.exec_cmd("waybar")
    -- hl.exec_cmd("mako")
    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+   -- 启动中文输入法
+   hl.exec_cmd("fcitx5 -d")
  end)
 
 
@@ -67,6 +69,14 @@ hl.on("hyprland.start", function ()
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+-- [中文输入法] fcitx5 环境变量
+hl.env("INPUT_METHOD", "fcitx")
+hl.env("GTK_IM_MODULE", "fcitx")
+hl.env("QT_IM_MODULE", "fcitx")
+hl.env("XMODIFIERS", "@im=fcitx")
+hl.env("SDL_IM_MODULE", "fcitx")
+hl.env("GLFW_IM_MODULE", "ibus")
 
 
 -----------------------
