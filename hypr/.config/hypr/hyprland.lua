@@ -105,7 +105,7 @@ hl.env("GLFW_IM_MODULE", "ibus")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
+        gaps_in  = 3,
         gaps_out = 3,
 
         border_size = 2,
