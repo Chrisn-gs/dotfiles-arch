@@ -283,16 +283,27 @@ hl.device({
 
 local mainMod = "ALT" -- Sets "ALT" key as main modifier
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+-- 打开终端（使用 alt+enter，避免和 alt+q 冲突）
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+-- 关闭窗口（和 Glazewm 一致：alt+q）
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+-- 退出 WM（和 Glazewm 一致：alt+shift+q）
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+-- 切换浮动（和 Glazewm 一致：alt+space）
+hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+-- 最小化窗口（和 Glazewm 一致：alt+m）
+hl.bind(mainMod .. " + M", hl.dsp.window.minimize())
+
+-- 调整窗口大小（和 Glazewm 一致：alt+u/i/o/p）
+hl.bind(mainMod .. " + U", hl.dsp.resize({ width = -50 }))
+hl.bind(mainMod .. " + I", hl.dsp.resize({ height = -50 }))
+hl.bind(mainMod .. " + O", hl.dsp.resize({ height = 50 }))
+hl.bind(mainMod .. " + P", hl.dsp.resize({ width = 50 }))
 
 -- Move focus with mainMod + h/j/k/l (Vim style)
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
