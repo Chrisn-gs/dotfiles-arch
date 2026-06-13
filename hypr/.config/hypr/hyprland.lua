@@ -56,8 +56,8 @@ hl.on("hyprland.start", function ()
    -- hl.exec_cmd("waybar")
    -- hl.exec_cmd("mako")
    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-   -- 启动中文输入法（延迟 2 秒确保 DMS 完全加载）
-   hl.exec_cmd("sleep 2 && fcitx5 -d")
+   -- 启动中文输入法
+   hl.exec_cmd("fcitx5 -d")
  end)
 
 
