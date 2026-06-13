@@ -283,8 +283,8 @@ hl.device({
 
 local mainMod = "ALT" -- Sets "ALT" key as main modifier
 
--- 打开终端（使用 alt+enter，避免和 alt+q 冲突）
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+-- 打开终端（和 Glazewm 一致：alt+t）
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 -- 关闭窗口（和 Glazewm 一致：alt+q）
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- 退出 WM（和 Glazewm 一致：alt+shift+q）
@@ -295,15 +295,6 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-
--- 最小化窗口（和 Glazewm 一致：alt+m）- 使用特殊工作区
-hl.bind(mainMod .. " + M", hl.dsp.window.move({ workspace = "special:minimized" }))
-
--- 调整窗口大小（和 Glazewm 一致：alt+u/i/o/p）
-hl.bind(mainMod .. " + U", hl.dsp.resize({ width = -50 }))
-hl.bind(mainMod .. " + I", hl.dsp.resize({ height = -50 }))
-hl.bind(mainMod .. " + O", hl.dsp.resize({ height = 50 }))
-hl.bind(mainMod .. " + P", hl.dsp.resize({ width = 50 }))
 
 -- Move focus with mainMod + h/j/k/l (Vim style)
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
