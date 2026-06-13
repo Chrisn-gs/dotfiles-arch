@@ -296,6 +296,12 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
+-- 调整窗口大小（和 Glazewm 一致：alt+u/i/o/p）
+hl.bind(mainMod .. " + U", hl.dsp.resize({ x = -50 }))
+hl.bind(mainMod .. " + I", hl.dsp.resize({ y = -50 }))
+hl.bind(mainMod .. " + O", hl.dsp.resize({ y = 50 }))
+hl.bind(mainMod .. " + P", hl.dsp.resize({ x = 50 }))
+
 -- Move focus with mainMod + h/j/k/l (Vim style)
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
