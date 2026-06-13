@@ -49,9 +49,12 @@ local menu        = "wofi --show drun"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
-   hl.exec_cmd("waybar")
-   hl.exec_cmd("mako")
+hl.on("hyprland.start", function ()
+   -- 启动 graphical-session.target（DMS 依赖）
+   hl.exec_cmd("systemctl --user start graphical-session.target")
+   -- DMS 自带状态栏和通知，不再启动 waybar 和 mako
+   -- hl.exec_cmd("waybar")
+   -- hl.exec_cmd("mako")
    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
  end)
 
