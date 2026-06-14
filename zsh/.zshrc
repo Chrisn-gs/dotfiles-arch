@@ -60,9 +60,9 @@ source <(fzf --zsh)
 
 # ── tmux 自动 attach ──────────────────────────────────────
 # 本地终端自动进入 tmux（如果有已有 session 就 attach）
-if [[ -z "$TMUX" ]] && [[ -z "$SSH_CONNECTION" ]]; then
-  tmux attach 2>/dev/null || tmux
-fi
+# if [[ -z "$TMUX" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+#   tmux attach 2>/dev/null || tmux
+# fi
 export PATH="$HOME/scripts:$PATH"
 alias sh="scriptsHub"
 alias lg='lazygit'
