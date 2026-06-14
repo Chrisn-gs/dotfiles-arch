@@ -14,6 +14,9 @@ ThinkPad T14 (Arch Linux + Hyprland) 的配置文件备份，使用 [GNU Stow](h
 | zsh | Zsh + Oh My Zsh + Powerlevel10k |
 | git | Git 全局配置 |
 | keyd | 按键重映射（空格键 TouchCursor） |
+| btop | 系统监控工具配置 |
+| lazygit | Git TUI 配置 |
+| whosthere | 局域网设备扫描工具配置 |
 
 ## 使用方法
 
