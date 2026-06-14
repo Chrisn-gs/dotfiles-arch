@@ -53,3 +53,32 @@ stow -D tmux
 - 终端：kitty + tmux
 - 编辑器：Neovim (AstroNvim)
 - Shell：Zsh + Oh My Zsh
+
+## 电源管理配置
+
+### 笔记本合盖不挂起
+
+为了在SSH远程访问时保持连接，配置了笔记本合盖不挂起：
+
+**配置文件**：`/etc/systemd/logind.conf`
+
+```bash
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+```
+
+**效果**：
+- 笔记本合盖 → 系统继续运行 → SSH连接保持
+- 屏幕会关闭，但系统不会休眠
+
+**修改后重启服务**：
+```bash
+sudo -S -p '' systemctl restart systemd-logind
+```
+
+**恢复默认**：
+```bash
+sudo -S -p '' sed -i 's/HandleLidSwitch=ignore/#HandleLidSwitch=suspend/' /etc/systemd/logind.conf
+sudo -S -p '' systemctl restart systemd-logind
+```
