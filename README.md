@@ -17,6 +17,7 @@ ThinkPad T14 (Arch Linux + Hyprland) 的配置文件备份，使用 [GNU Stow](h
 | btop | 系统监控工具配置 |
 | lazygit | Git TUI 配置 |
 | whosthere | 局域网设备扫描工具配置 |
+| pam | PAM 认证配置（指纹登录 + sudo） |
 
 ## 使用方法
 
@@ -41,6 +42,7 @@ stow -D tmux
 ## 注意事项
 
 - keyd 配置需要手动复制到 `/etc/keyd/`（需要 sudo）
+- pam 配置需要手动复制到 `/etc/pam.d/`（需要 sudo）
 - Hyprland 配置使用 Lua 格式（非默认 conf）
 - 使用 Catppuccin Mocha 配色方案
 - 修改后 `git add -A && git commit && git push` 同步
