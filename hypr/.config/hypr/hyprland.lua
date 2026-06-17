@@ -58,6 +58,8 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
    -- 启动中文输入法
    hl.exec_cmd("fcitx5 -d")
+   -- 启动gnome-keyring
+   hl.exec_cmd("gnome-keyring-daemon --start --components=ssh,secrets")
  end)
 
 
@@ -235,6 +237,11 @@ hl.config({
         disable_splash_rendering = true, -- 关闭启动语录
         background_color         = "0x000000FF", -- 纯黑背景
     },
+    xwayland = {
+        -- [HiDPI] XWayland 应用以原始分辨率渲染，避免分数缩放导致的模糊
+        -- 微信等 X11 应用会变小但清晰
+        force_zero_scaling = true,
+    },
 })
 
 
@@ -342,6 +349,9 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
+-- 截图：选区后打开 satty 标注编辑
+hl.bind("CTRL + 1", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | satty --filename -"))
+
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -397,3 +407,6 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- [GNOME Keyring] 环境变量
+hl.env("SSH_AUTH_SOCK", "$XDG_RUNTIME_DIR/keyring/ssh")
