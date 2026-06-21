@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable inverted audio-micmute LED trigger
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "echo none > /sys/class/leds/platform::micmute/trigger && echo 0 > /sys/class/leds/platform::micmute/brightness"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

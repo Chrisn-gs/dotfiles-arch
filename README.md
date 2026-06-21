@@ -19,6 +19,7 @@ ThinkPad T14 (Arch Linux + Hyprland) 的配置文件备份，使用 [GNU Stow](h
 | whosthere | 局域网设备扫描工具配置 |
 | pam | PAM 认证配置（指纹登录 + sudo） |
 | battery-threshold | 电池充电阈值（75%-80%） |
+| micmute-toggle | F4 麦克风静音切换 + LED 同步（ThinkPad） |
 
 ## 使用方法
 
@@ -45,6 +46,8 @@ stow -D tmux
 - keyd 配置需要手动复制到 `/etc/keyd/`（需要 sudo）
 - pam 配置需要手动复制到 `/etc/pam.d/`（需要 sudo）
 - battery-threshold 需要手动复制到 `/etc/systemd/system/` 并 `systemctl enable battery-threshold`
+- micmute-toggle 需要手动复制到 `~/.local/bin/` 和 `/etc/systemd/system/`，然后 `systemctl enable micmute-led`
+  - 修复 ThinkPad `audio-micmute` trigger 逻辑反转问题
 - Hyprland 配置使用 Lua 格式（非默认 conf）
 - 使用 Catppuccin Mocha 配色方案
 - 修改后 `git add -A && git commit && git push` 同步

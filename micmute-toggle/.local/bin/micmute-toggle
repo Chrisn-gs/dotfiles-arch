@@ -1,0 +1,18 @@
+#!/bin/bash
+# Toggle mic mute via PipeWire and sync ThinkPad LED
+# Runs as root (called via sudo from Hyprland binding)
+LED=/sys/class/leds/platform::micmute/brightness
+TRIGGER=/sys/class/leds/platform::micmute/trigger
+
+# Disable auto trigger (audio-micmute has inverted logic on this ThinkPad)
+[ "$(cat "$TRIGGER")" != "[none]" ] && echo none > "$TRIGGER"
+
+# wpctl needs to run as the user, not root
+export XDG_RUNTIME_DIR=/run/user/$(id -u chrisn)
+su chrisn -c 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
+
+if su chrisn -c 'wpctl get-volume @DEFAULT_AUDIO_SOURCE@' | grep -q "MUTED"; then
+    echo 1 > "$LED"
+else
+    echo 0 > "$LED"
+fi
