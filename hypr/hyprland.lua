@@ -60,6 +60,8 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("fcitx5 -d")
    -- 启动gnome-keyring
    hl.exec_cmd("gnome-keyring-daemon --start --components=ssh,secrets")
+   -- 启动 Clash Verge（Hyprland 不处理 XDG autostart，需要手动启动）
+   hl.exec_cmd("clash-verge")
  end)
 
 
