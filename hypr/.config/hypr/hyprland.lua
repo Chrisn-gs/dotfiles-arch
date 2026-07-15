@@ -60,6 +60,8 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("fcitx5 -d")
    -- 启动gnome-keyring
    hl.exec_cmd("gnome-keyring-daemon --start --components=ssh,secrets")
+   -- 启动 Clash Verge（Hyprland 不处理 XDG autostart，需要手动启动）
+   hl.exec_cmd("clash-verge")
  end)
 
 
@@ -288,16 +290,18 @@ hl.device({
 
 local mainMod = "ALT" -- Sets "ALT" key as main modifier
 
--- 打开终端（和 Glazewm 一致：alt+t）
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+-- 打开终端（原 ALT+T，已让给 Spark；改用 SUPER+T）
+hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
 -- 关闭窗口（和 Glazewm 一致：alt+q）
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- 退出 WM（和 Glazewm 一致：alt+shift+q）
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
--- 切换浮动（和 Glazewm 一致：alt+space）
-hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+-- 文件管理器（原 ALT+E，已让给 Spark；改用 SUPER+E）
+hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager))
+-- 切换浮动（原 ALT+SPACE，已让给 Spark；改用 SUPER+SPACE）
+hl.bind("SUPER + SPACE", hl.dsp.window.float({ action = "toggle" }))
+-- 启动菜单（原 ALT+R，已让给 Spark；改用 SUPER+R）
+hl.bind("SUPER + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + h/j/k/l (Vim style)
@@ -323,9 +327,9 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- 特殊工作区 scratchpad（原 ALT+S，已让给 Spark；改用 SUPER+S）
+hl.bind("SUPER + S",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -410,3 +414,6 @@ hl.window_rule({
 
 -- [GNOME Keyring] 环境变量
 hl.env("SSH_AUTH_SOCK", "$XDG_RUNTIME_DIR/keyring/ssh")
+
+-- Spark quick launcher keybindings
+require("spark-binds")
