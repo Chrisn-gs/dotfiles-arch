@@ -9,7 +9,12 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # ── aliases ────────────────────────────────────────────────
+
+
+alias reflash='source ~/.zshrc'
+
 alias v='nvim'
 alias vi='nvim'
 alias cl='clear'
@@ -18,6 +23,13 @@ alias yz='yazi'
 # Agent cli
 alias hm='hermes'
 alias hp='hermes --profile'
+
+
+# music
+alias music='mineral'
+alias mc='mineral'
+alias musicLogin='mineral channel netease login'
+
 
 # fetch
 alias ft='fastfetch'
@@ -60,11 +72,13 @@ source <(fzf --zsh)
 
 # ── tmux 自动 attach ──────────────────────────────────────
 # 本地终端自动进入 tmux（如果有已有 session 就 attach）
-# if [[ -z "$TMUX" ]] && [[ -z "$SSH_CONNECTION" ]]; then
-#   tmux attach 2>/dev/null || tmux
-# fi
+if [[ -z "$TMUX" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+  tmux attach 2>/dev/null || tmux
+fi
 export PATH="$HOME/scripts:$PATH"
 alias sh="scriptsHub"
 alias lg='lazygit'
 alias cc='claude'
 alias oc='opencode'
+alias lan="whosthere -i wlan0"
+alias docker="lazydocker"
