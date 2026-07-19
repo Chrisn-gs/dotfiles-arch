@@ -22,6 +22,12 @@ ThinkPad T14 (Arch Linux + Hyprland) 的配置文件备份，使用 [GNU Stow](h
 | micmute-toggle | F4 麦克风静音切换 + LED 同步（ThinkPad） |
 | rime | fcitx5 Rime 输入法配置（默认简体中文） |
 
+## 桌面环境
+
+- **窗口管理器**：Hyprland（Lua 配置格式）
+- **桌面 Shell**：DankMaterialShell (DMS) — 提供顶部状态栏（DankBar）、应用启动器、控制中心等
+- **应用启动器**：wofi + spark-linux（自定义快捷启动工具）
+
 ## 使用方法
 
 ```bash
