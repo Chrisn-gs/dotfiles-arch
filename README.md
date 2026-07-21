@@ -60,6 +60,10 @@ stow -D tmux
 - 使用 Catppuccin Mocha 配色方案
 - 修改后 `git add -A && git commit && git push` 同步
 
+## 故障排查
+
+- [Hermes Agent CLI 卡住问题](docs/hermes-cli-troubleshooting.md) — sudo NOPASSWD 配置、wheel 行顺序问题
+
 ## 系统信息
 
 - 设备：ThinkPad T14 Gen1 AMD
