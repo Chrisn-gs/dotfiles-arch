@@ -2,13 +2,6 @@
 patch:
   schema_list:
     - schema: rime_ice
-    - schema: double_pinyin_flypy
-    - schema: double_pinyin
-    - schema: double_pinyin_mspy
-    - schema: double_pinyin_sogou
-    - schema: double_pinyin_abc
-    - schema: double_pinyin_ziguang
-    - schema: double_pinyin_jiajia
   switches:
     - name: ascii_mode
       reset: 0
