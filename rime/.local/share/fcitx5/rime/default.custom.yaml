@@ -1,26 +1,27 @@
-# Rime 配置文件 - 默认简体中文
+# Rime 配置文件 - 雾凇拼音
 patch:
   schema_list:
-    - schema: luna_pinyin_simp
-    - schema: luna_pinyin
-    - schema: luna_pinyin_fluency
-    - schema: terra_pinyin
-    - schema: bopomofo
-    - schema: bopomofo_tw
-    - schema: cangjie5
-    - schema: stroke
+    - schema: rime_ice
+    - schema: double_pinyin_flypy
+    - schema: double_pinyin
+    - schema: double_pinyin_mspy
+    - schema: double_pinyin_sogou
+    - schema: double_pinyin_abc
+    - schema: double_pinyin_ziguang
+    - schema: double_pinyin_jiajia
   switches:
     - name: ascii_mode
       reset: 0
-      states: [ 中文, 西文 ]
+      states: [ 中, Ａ ]
+    - name: ascii_punct
+      states: [ ¥, $ ]
+    - name: traditionalization
+      states: [ 简, 繁 ]
+    - name: emoji
+      states: [ 💀, 😄 ]
+      reset: 1
     - name: full_shape
       states: [ 半角, 全角 ]
-    - name: simplification
-      reset: 1
-      states: [ 漢字, 汉字 ]
-    - name: ascii_punct
-      states: [ 。，, ．， ]
-  # Shift 切换中英文时，提交已输入的拼音编码
   ascii_composer/switch_key/+:
     Shift_L: commit_code
-    Shift_R: commit_code
+    Shift_R: noop
