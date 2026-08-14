@@ -74,6 +74,7 @@ hl.on("hyprland.start", function ()
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 
 -- [Wayland 显示] 不要硬编码 WAYLAND_DISPLAY，Hyprland 自动设置
 hl.env("XDG_SESSION_TYPE", "wayland")
