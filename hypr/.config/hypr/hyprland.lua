@@ -418,4 +418,6 @@ hl.window_rule({
 hl.env("SSH_AUTH_SOCK", "$XDG_RUNTIME_DIR/keyring/ssh")
 
 -- Spark quick launcher keybindings
+-- DMS cursor 设置（由 DMS 自动生成）
+require("dms.cursor")
 require("spark-binds")
