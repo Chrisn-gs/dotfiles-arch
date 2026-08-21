@@ -1,0 +1,9 @@
+/* 去掉左侧空白 */
+#TabsToolbar .titlebar-spacer {
+  display: none !important;
+}
+
+/* 隐藏右侧窗口按钮 */
+#TabsToolbar .titlebar-buttonbox-container {
+  display: none !important;
+}
