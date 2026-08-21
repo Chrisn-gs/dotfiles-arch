@@ -114,12 +114,6 @@ hl.env("GLFW_IM_MODULE", "ibus")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-    cursor = {
-        theme     = "Bibata-Modern-Classic",
-        size      = 24,
-        no_hardware_cursors = true,  -- 强制使用软件光标，避免硬件光标覆盖主题
-    },
-
     general = {
         gaps_in  = 3,
         gaps_out = 3,
